@@ -134,15 +134,15 @@ d3.csv("./assets/data/data.csv").then(data => {
     .enter()
     .append("circle")
     .attr("cx", d => xLinearScale(d[chosenXAxis]))
-    .attr("cy", d => yLinearScale(d.healthcare))
+    .attr("cy", d => yLinearScale(d.healthcareLow))
     .attr("r", 8)
     .attr("fill", "steelblue")
     .attr("opacity", ".8");
 
-  // var names = circlesGroup.append("text").text(d => d.abbr)
-  //     .attr("x", d => xScale(xValue(d)) - 6)
-  //     .attr("y", d => yScale(yValue(d)) + 3)
-  //     .style("font-size", "9px")
+  circlesGroup.append("text").text(d => d.abbr)
+      .attr("x", d => xLinearScale(d[chosenXAxis]) - 6)
+      .attr("y", d => yLinearScale(d.healthcareLow) + 3)
+      .style("font-size", "9px");
 
     // Create group for  2 x- axis labels
   var labelsGroup = chartGroup.append("g")
